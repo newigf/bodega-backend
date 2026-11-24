@@ -1,0 +1,12 @@
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - script: npm install
+    displayName: Instalar dependencias del backend
+
+  - script: docker build -t bodega-backend:$(Build.BuildId) .
+    displayName: Construir la imagen Docker
